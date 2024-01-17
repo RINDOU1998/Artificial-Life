@@ -1,1 +1,11 @@
-pass
+import dm_control.mujoco 
+import mujoco.viewer 
+
+m = dm_control.mujoco.MjModel.from_xml_path('example.xml')
+d = dm_control.mujoco.MjData(m)
+#open viewer
+viewer=mujoco.viewer.launch_passive(m, d)
+
+
+#close viewer
+viewer.close()
