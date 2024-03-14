@@ -1,0 +1,35 @@
+<mujoco>
+    <option gravity="0 0 0"/>
+    <worldbody>
+        <light diffuse=".5 .5 .5" pos="0 0 5" dir="0 0 -1"/>
+        <geom type="plane" size="10 10 0.1" rgba=".9 0 0 1"/>
+
+        <body name="fish" pos="0 0 1" euler="0 0 0">
+            <joint type="free" axis="0 0 0" pos="0 0 0" />
+            <body name="body" pos="0 0 0" euler="0 0 0">
+                <geom type="sphere" size="0.2" rgba="0 .9 0 1" mass="0.01336" />
+            </body>
+
+            <body name="fin1" pos=".2 0 0" euler="0 -90 0">
+                <joint name="joint1" type="hinge" axis="1 0 0" pos="0 0 .25" range="-45 45" />
+                <geom type="box" size="0.05 0.03 0.14" rgba="0 0.2 0.7 1" mass="0.37374" />
+            </body>
+
+            <body name="fin2" pos="-.2 0 0" euler="0 90 0">
+                <joint name="joint2" type="hinge" axis="1 0 0" pos="0 0 .25" range="-45 45" />
+                <geom type="box" size="0.04 0.04 0.18" rgba="0 0.2 0.7 1" mass="0.19115" />
+            </body>
+
+            <body name="tail" pos="0 0.4 0" euler="0 90 90">
+                <joint name="joint3" type="hinge" axis="0 0 1" pos="0 0 0" range="-45 45" />
+                <geom type="box" size="0.13 0.02 0.16" rgba="0 0.2 0.7 1" mass="0.49011" />
+            </body>
+        </body>
+    </worldbody>
+
+    <actuator>
+        <motor joint="joint1" name="t1" gear="10" ctrllimited="true" ctrlrange="-5 5" />
+        <motor joint="joint2" name="t2" gear="10" ctrllimited="true" ctrlrange="-5 5" />
+        <motor joint="joint3" name="t3" gear="10" ctrllimited="true" ctrlrange="-5 5" />
+    </actuator>
+</mujoco>

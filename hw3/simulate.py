@@ -2,6 +2,8 @@ import dm_control.mujoco
 import mujoco.viewer 
 import time
 import numpy as np
+import csv
+
 
 m = dm_control.mujoco.MjModel.from_xml_path('modified_model.xml')
 d = dm_control.mujoco.MjData(m)
@@ -42,3 +44,5 @@ for i in range(20):
 viewer.close()
 print("Total Distance:", total_distance)
 print("range", max_height-min_height)
+
+
