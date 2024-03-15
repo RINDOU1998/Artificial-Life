@@ -134,4 +134,4 @@ for i in range(num_generation):
     print("child_generated",child_list)
 
 print("generation_fitness: ",generation_fitness_list)
-    
+#

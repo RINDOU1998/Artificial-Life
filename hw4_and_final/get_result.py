@@ -31,7 +31,7 @@ def mutation_random_choose(parent1,parent2):
     return child_geno
 
 ###############
-num_generation=3
+num_generation=5
 population_list=[]
 size_modifications=[]
 mass_modifications=[]
@@ -39,6 +39,8 @@ leg_num=3
 gear=10
 max_fitness=0
 generation_fitness_list=[]
+max_height_reach=[]
+max_distance_travel=[]
 ###############
 geno_random_generated(size_modifications,mass_modifications)
 
@@ -57,6 +59,9 @@ total_fitness=height_fitness+distance_fitness
 #generate population
 
 start_fitness=0
+start_height=0
+start_distance=0
+
 for i in range(10):
     size_modifications=[]
     mass_modifications=[]
@@ -71,11 +76,18 @@ for i in range(10):
     distance_fitness=total_distance*leg_num*gear
     total_fitness=height_fitness+distance_fitness
     start_fitness+=total_fitness
+    h_r=max_height-min_height
     print("Fitness: ", total_fitness)
     if total_fitness>max_fitness:
         max_fitness=total_distance
     population_list.append([size_modifications,mass_modifications,total_fitness])
+    if total_distance>start_distance:
+        start_distance=total_distance
+    if h_r>start_height:
+        start_height=h_r
 
+max_height_reach.append(start_height)
+max_distance_travel.append(start_distance)
 generation_fitness_list.append(start_fitness)
 
 population_list = sorted(population_list, key=lambda x: x[2])
@@ -103,6 +115,9 @@ print("child_generated",child_list)
 for i in range(num_generation):
     generation_fitness=0
     #run each child geno
+    max_height=0
+    max_distance=0
+    
     for ele in child_list:
         size_modifications=ele[0]
         mass_modifications=ele[1]
@@ -118,6 +133,14 @@ for i in range(num_generation):
         generation_fitness+=total_fitness
         print("Fitness: ", total_fitness)
         ele[2]=total_fitness
+        if total_distance>max_height:
+            max_height=total_distance
+        if (max_height-min_height)>max_distance:
+            max_distance=(max_height-min_height)
+
+    max_height_reach.append(max_height)
+    max_distance_travel.append(max_distance)
+
     #record the generation
     generation_fitness_list.append(generation_fitness)
     population_list = sorted(child_list, key=lambda x: x[2])
@@ -134,4 +157,5 @@ for i in range(num_generation):
     print("child_generated",child_list)
 
 print("generation_fitness: ",generation_fitness_list)
-    
+print("max height reach",max_height_reach )
+print("max distance travel",max_distance_travel )

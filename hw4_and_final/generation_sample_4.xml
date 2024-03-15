@@ -22,7 +22,7 @@
 
             <body name="tail" pos="0 0.4 0" euler="0 90 90">
                 <joint name="joint3" type="hinge" axis="0 0 1" pos="0 0 0" range="-45 45" />
-                <geom type="box" size="0.16 0.01 0.12" rgba="0 0.2 0.7 1" mass="0.32930" />
+                <geom type="box" size="0.16 0.01 0.13" rgba="0 0.2 0.7 1" mass="0.32930" />
             </body>
         </body>
     </worldbody>

@@ -5,23 +5,23 @@ This project explores the dynamics of artificial life through simulation and ana
 
 ## Video Link
 
-[Insert Video Link Here](#)
+[Final presentation link: https://youtu.be/3xWwPU6_qPY](https://youtu.be/3xWwPU6_qPY)
 
 ## Genotype Graph
 
-![Genotype Graph](genotype_graph.png)
+![Genotype Graph](Fish_blue_print-1.png)
 
-The genotype graph represents the distribution of genotypes within the population over time.
+
 
 ## Sample from Generations
 
-![Sample from Generations](sample_from_generations.png)
+![Sample from Generations](image.png)
 
 This graph showcases a sample population from various generations, illustrating the diversity and evolution of digital organisms.
 
 ## Generation Fitness Curve
 
-![Generation Fitness Curve](generation_fitness_curve.png)
+![Generation Fitness Curve](fitness_curve.png)
 
 The generation fitness curve demonstrates the trend of fitness levels across successive generations, reflecting the overall progress and adaptation of the population.
 
